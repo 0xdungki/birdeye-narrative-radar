@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Birdeye Narrative Rotation Radar</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; background: #070a12; color: #eff4ff; }
+    body { margin: 0; background: radial-gradient(circle at top left, #172554, transparent 32rem), #070a12; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 18px 56px; }
+    .hero { display: grid; gap: 12px; margin-bottom: 22px; }
+    h1 { margin: 0; font-size: clamp(30px, 5vw, 58px); letter-spacing: -0.06em; }
+    .sub { color: #a6b4d0; max-width: 820px; line-height: 1.5; }
+    .pill { display: inline-flex; border: 1px solid #334155; border-radius: 999px; padding: 7px 11px; color: #bfdbfe; background: #0f172a99; font-size: 13px; width: max-content; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+    .card { grid-column: span 4; background: linear-gradient(180deg, #111827d9, #0b1020d9); border: 1px solid #263449; border-radius: 20px; padding: 18px; box-shadow: 0 20px 70px #0008; }
+    .card.wide { grid-column: span 12; }
+    @media (max-width: 880px) { .card { grid-column: span 12; } }
+    .label { color: #93a4c1; font-size: 13px; }
+    .value { font-size: 34px; font-weight: 800; letter-spacing: -0.04em; margin-top: 6px; }
+    .narrative { display: grid; gap: 12px; margin-top: 14px; }
+    .row { background: #0b1220; border: 1px solid #223047; border-radius: 18px; padding: 16px; display: grid; gap: 10px; }
+    .row-head { display:flex; justify-content:space-between; gap:12px; align-items:center; }
+    .name { font-size: 20px; font-weight: 800; }
+    .score { color:#fde68a; font-weight:800; }
+    .metrics { display:grid; grid-template-columns: repeat(5, 1fr); gap:8px; }
+    @media (max-width: 760px) { .metrics { grid-template-columns: repeat(2, 1fr); } }
+    .metric { background:#111827; border-radius:12px; padding:10px; }
+    .metric b { display:block; font-size:15px; margin-top:3px; }
+    .tokens { display:flex; flex-wrap:wrap; gap:8px; }
+    .token { border:1px solid #334155; border-radius:999px; padding:7px 9px; color:#dbeafe; background:#020617; font-size:13px; }
+    .spark { height: 34px; display:flex; align-items:end; gap:3px; margin-top:2px; }
+    .bar { width: 8px; min-height: 2px; border-radius:99px 99px 0 0; background:linear-gradient(#60a5fa,#1d4ed8); opacity:.9; }
+    .delta { font-size: 13px; margin-left: 8px; }
+    .up { color:#86efac; } .down { color:#fca5a5; }
+    code { color:#bfdbfe; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <span class="pill">Birdeye Sprint prototype • read-only analytics</span>
+      <h1>Narrative Rotation Radar</h1>
+      <p class="sub">Detect which crypto narratives are rotating fastest from Birdeye trending tokens. Instead of alerting one token, this clusters the meta: AI agents, cat/dog/frog memes, politics, DeFi, infra, gaming, RWA, and majors.</p>
+    </section>
+
+    <section class="grid" id="stats"></section>
+    <section class="card wide">
+      <div class="row-head"><div><div class="label">Live rotation board</div><div class="value" style="font-size:26px">Narratives</div></div><div class="label" id="generated"></div></div>
+      <div class="narrative" id="board"></div>
+    </section>
+  </main>
+<script>
+const usd = n => n ? '$' + Intl.NumberFormat('en', { notation:'compact', maximumFractionDigits:1 }).format(n) : '—';
+const pct = n => (n > 0 ? '+' : '') + (Number.isFinite(n) ? n.toFixed(2) : '0.00') + '%';
+Promise.all([
+  fetch('/data/latest.json?ts=' + Date.now()).then(r => r.json()),
+  fetch('/data/history.json?ts=' + Date.now()).then(r => r.ok ? r.json() : {points:[]}).catch(() => ({points:[]}))
+]).then(([data, history]) => {
+  const byId = {};
+  for (const p of (history.points || [])) (byId[p.id] ||= []).push(p);
+  const deltaFor = id => {
+    const arr = byId[id] || [];
+    if (arr.length < 2) return 0;
+    return arr[arr.length - 1].score - arr[arr.length - 2].score;
+  };
+  const spark = id => {
+    const arr = (byId[id] || []).slice(-16);
+    if (!arr.length) return '';
+    const max = Math.max(1, ...arr.map(x => x.score));
+    return `<div class="spark">${arr.map(x => `<span class="bar" title="${x.score}" style="height:${Math.max(3, Math.round((x.score/max)*34))}px"></span>`).join('')}</div>`;
+  };
+  document.getElementById('generated').textContent = new Date(data.generatedAt).toLocaleString();
+  const top = data.rotations.find(r => r.id !== 'other') || data.rotations[0] || {};
+  document.getElementById('stats').innerHTML = `
+    <div class="card"><div class="label">Top narrative</div><div class="value">${top.label || '—'}</div></div>
+    <div class="card"><div class="label">Tokens scanned</div><div class="value">${data.tokenCount}</div></div>
+    <div class="card"><div class="label">History points</div><div class="value">${(history.points || []).length}</div></div>`;
+  document.getElementById('board').innerHTML = data.rotations.map(r => {
+    const d = deltaFor(r.id);
+    return `
+    <article class="row">
+      <div class="row-head"><div class="name">${r.label}<span class="delta ${d >= 0 ? 'up' : 'down'}">${d ? (d > 0 ? '+' : '') + d : 'new/flat'}</span></div><div class="score">Score ${r.score}</div></div>
+      ${spark(r.id)}
+      <div class="metrics">
+        <div class="metric"><span class="label">Tokens</span><b>${r.count}</b></div>
+        <div class="metric"><span class="label">Avg 24h</span><b class="${r.avgChange24h >= 0 ? 'up' : 'down'}">${pct(r.avgChange24h)}</b></div>
+        <div class="metric"><span class="label">Vol 24h</span><b>${usd(r.totalVolume24h)}</b></div>
+        <div class="metric"><span class="label">Liquidity</span><b>${usd(r.totalLiquidity)}</b></div>
+        <div class="metric"><span class="label">Median FDV</span><b>${usd(r.medianFdv)}</b></div>
+      </div>
+      <div class="tokens">${r.tokens.slice(0, 10).map(t => `<span class="token">${t.symbol || '?'} <span class="${t.priceChange24h >= 0 ? 'up' : 'down'}">${pct(t.priceChange24h)}</span></span>`).join('')}</div>
+    </article>`}).join('');
+}).catch(err => {
+  document.getElementById('board').innerHTML = `<div class="row">Failed to load data: <code>${err.message}</code>. Run <code>npm run fetch</code>.</div>`;
+});
+</script>
+</body>
+</html>
