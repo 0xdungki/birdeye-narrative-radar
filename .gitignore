@@ -1,0 +1,5 @@
+.env
+node_modules/
+data/*.raw.json
+data/*.sqlite
+data/alert_state.json

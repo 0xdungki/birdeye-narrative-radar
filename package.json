@@ -1,0 +1,12 @@
+{
+  "name": "birdeye-narrative-radar",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fetch": "node scripts/fetch-birdeye.mjs",
+    "poll": "python3 scripts/poll_and_alert.py",
+    "serve": "python3 -m http.server 4173 --directory public",
+    "demo": "npm run fetch && npm run serve"
+  }
+}
