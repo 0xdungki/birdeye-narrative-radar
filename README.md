@@ -25,7 +25,9 @@ That is more useful for traders, researchers, and community teams because rotati
 - Static dashboard with:
   - current top narrative
   - narrative leaderboard
-  - per-narrative token chips
+  - per-narrative actionable token cards
+  - copyable Solana contract addresses (CA)
+  - one-click Dexscreener links for each scanned token
   - history spark bars
   - score deltas
 - SQLite persistence for polling/history.

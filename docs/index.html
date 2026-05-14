@@ -27,8 +27,15 @@
     @media (max-width: 760px) { .metrics { grid-template-columns: repeat(2, 1fr); } }
     .metric { background:#111827; border-radius:12px; padding:10px; }
     .metric b { display:block; font-size:15px; margin-top:3px; }
-    .tokens { display:flex; flex-wrap:wrap; gap:8px; }
-    .token { border:1px solid #334155; border-radius:999px; padding:7px 9px; color:#dbeafe; background:#020617; font-size:13px; }
+    .tokens { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:10px; }
+    .token { border:1px solid #334155; border-radius:16px; padding:10px; color:#dbeafe; background:#020617; font-size:13px; display:grid; gap:8px; }
+    .token-top { display:flex; justify-content:space-between; gap:8px; align-items:center; }
+    .token-symbol { font-weight:800; font-size:15px; }
+    .ca { color:#93a4c1; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:11px; word-break: break-all; }
+    .actions { display:flex; gap:7px; flex-wrap:wrap; }
+    .action { border:1px solid #3b82f6; background:#0b2348; color:#bfdbfe; border-radius:999px; padding:6px 9px; font-size:12px; cursor:pointer; text-decoration:none; }
+    .action:hover { background:#12376d; color:#eff6ff; }
+    .copied { border-color:#22c55e; color:#bbf7d0; }
     .spark { height: 34px; display:flex; align-items:end; gap:3px; margin-top:2px; }
     .bar { width: 8px; min-height: 2px; border-radius:99px 99px 0 0; background:linear-gradient(#60a5fa,#1d4ed8); opacity:.9; }
     .delta { font-size: 13px; margin-left: 8px; }
@@ -53,6 +60,20 @@
 <script>
 const usd = n => n ? '$' + Intl.NumberFormat('en', { notation:'compact', maximumFractionDigits:1 }).format(n) : '—';
 const pct = n => (n > 0 ? '+' : '') + (Number.isFinite(n) ? n.toFixed(2) : '0.00') + '%';
+const esc = v => String(v ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+const shortCa = ca => ca ? `${ca.slice(0, 6)}…${ca.slice(-6)}` : 'no CA';
+const dexUrl = ca => `https://dexscreener.com/solana/${encodeURIComponent(ca)}`;
+const tokenCard = t => {
+  const ca = t.address || '';
+  return `<article class="token">
+    <div class="token-top"><span class="token-symbol">${esc(t.symbol || '?')}</span><span class="${t.priceChange24h >= 0 ? 'up' : 'down'}">${pct(t.priceChange24h)}</span></div>
+    <div class="ca" title="${esc(ca)}">CA: ${esc(shortCa(ca))}</div>
+    <div class="actions">
+      <button class="action copy-ca" type="button" data-ca="${esc(ca)}">Copy CA</button>
+      <a class="action" href="${dexUrl(ca)}" target="_blank" rel="noopener noreferrer">Dexscreener ↗</a>
+    </div>
+  </article>`;
+};
 Promise.all([
   fetch('data/latest.json?ts=' + Date.now()).then(r => r.json()),
   fetch('data/history.json?ts=' + Date.now()).then(r => r.ok ? r.json() : {points:[]}).catch(() => ({points:[]}))
@@ -89,10 +110,23 @@ Promise.all([
         <div class="metric"><span class="label">Liquidity</span><b>${usd(r.totalLiquidity)}</b></div>
         <div class="metric"><span class="label">Median FDV</span><b>${usd(r.medianFdv)}</b></div>
       </div>
-      <div class="tokens">${r.tokens.slice(0, 10).map(t => `<span class="token">${t.symbol || '?'} <span class="${t.priceChange24h >= 0 ? 'up' : 'down'}">${pct(t.priceChange24h)}</span></span>`).join('')}</div>
+      <div class="tokens">${r.tokens.slice(0, 10).map(tokenCard).join('')}</div>
     </article>`}).join('');
 }).catch(err => {
   document.getElementById('board').innerHTML = `<div class="row">Failed to load data: <code>${err.message}</code>. Run <code>npm run fetch</code>.</div>`;
+});
+document.addEventListener('click', async e => {
+  const btn = e.target.closest('.copy-ca');
+  if (!btn) return;
+  const ca = btn.dataset.ca;
+  try {
+    await navigator.clipboard.writeText(ca);
+    btn.textContent = 'Copied';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy CA'; btn.classList.remove('copied'); }, 1200);
+  } catch {
+    window.prompt('Copy contract address', ca);
+  }
 });
 </script>
 </body>

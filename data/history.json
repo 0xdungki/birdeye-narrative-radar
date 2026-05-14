@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-14T08:00:50.742535+00:00",
+  "generatedAt": "2026-05-14T08:15:59.592122+00:00",
   "points": [
     {
       "generatedAt": "2026-05-14T07:40:43.860Z",
@@ -385,63 +385,118 @@
       "totalVolume24h": 1222318.3114097812,
       "totalLiquidity": 147061.87455124312,
       "medianFdv": 297495.76881340676
-    }
-  ],
-  "latest": [
+    },
     {
-      "generatedAt": "2026-05-14T08:00:50.708Z",
+      "generatedAt": "2026-05-14T08:15:59.565Z",
       "id": "cult",
       "label": "Internet cult / Meme culture",
       "score": 206,
       "count": 5,
-      "avgChange24h": 19.19554240764028,
-      "totalVolume24h": 25917967.90167135,
-      "totalLiquidity": 9481793.673804265,
-      "medianFdv": 8533337.940946506
+      "avgChange24h": 19.352238901904848,
+      "totalVolume24h": 26066719.07836345,
+      "totalLiquidity": 9454159.212532068,
+      "medianFdv": 8568793.91839702
     },
     {
-      "generatedAt": "2026-05-14T08:00:50.708Z",
+      "generatedAt": "2026-05-14T08:15:59.565Z",
       "id": "infra",
       "label": "Infra / DePIN",
-      "score": 164,
+      "score": 163,
       "count": 3,
-      "avgChange24h": 4.551077857614906,
-      "totalVolume24h": 69633116.97188234,
-      "totalLiquidity": 706326150.8512886,
+      "avgChange24h": 4.188975224849187,
+      "totalVolume24h": 69634226.70755707,
+      "totalLiquidity": 707486130.0840002,
       "medianFdv": 59640797.60361843
     },
     {
-      "generatedAt": "2026-05-14T08:00:50.708Z",
+      "generatedAt": "2026-05-14T08:15:59.565Z",
       "id": "bluechip",
       "label": "Bluechip / Majors",
       "score": 159,
       "count": 3,
-      "avgChange24h": -0.25376873406673894,
-      "totalVolume24h": 69505401.99906786,
-      "totalLiquidity": 706637559.4147904,
+      "avgChange24h": -0.3269906931792625,
+      "totalVolume24h": 69505920.71506016,
+      "totalLiquidity": 707797465.806656,
       "medianFdv": 59640797.60361843
     },
     {
-      "generatedAt": "2026-05-14T08:00:50.708Z",
+      "generatedAt": "2026-05-14T08:15:59.565Z",
       "id": "other",
       "label": "Other / Unclassified",
       "score": 158,
       "count": 10,
-      "avgChange24h": 540.5345544809963,
-      "totalVolume24h": 6821986.196265616,
-      "totalLiquidity": 941086.2847348351,
-      "medianFdv": 71422.12230731745
+      "avgChange24h": 522.9947503657233,
+      "totalVolume24h": 6753997.7187256925,
+      "totalLiquidity": 961136.697273449,
+      "medianFdv": 72947.74923921618
     },
     {
-      "generatedAt": "2026-05-14T08:00:50.708Z",
+      "generatedAt": "2026-05-14T08:15:59.565Z",
       "id": "cat",
       "label": "Cat memes",
-      "score": 138,
+      "score": 139,
       "count": 1,
-      "avgChange24h": 971.8908792840383,
-      "totalVolume24h": 1222318.3114097812,
-      "totalLiquidity": 147061.87455124312,
-      "medianFdv": 297495.76881340676
+      "avgChange24h": 972.3506351112793,
+      "totalVolume24h": 1244877.065155027,
+      "totalLiquidity": 147739.41410577382,
+      "medianFdv": 297623.37080716836
+    }
+  ],
+  "latest": [
+    {
+      "generatedAt": "2026-05-14T08:15:59.565Z",
+      "id": "cult",
+      "label": "Internet cult / Meme culture",
+      "score": 206,
+      "count": 5,
+      "avgChange24h": 19.352238901904848,
+      "totalVolume24h": 26066719.07836345,
+      "totalLiquidity": 9454159.212532068,
+      "medianFdv": 8568793.91839702
+    },
+    {
+      "generatedAt": "2026-05-14T08:15:59.565Z",
+      "id": "infra",
+      "label": "Infra / DePIN",
+      "score": 163,
+      "count": 3,
+      "avgChange24h": 4.188975224849187,
+      "totalVolume24h": 69634226.70755707,
+      "totalLiquidity": 707486130.0840002,
+      "medianFdv": 59640797.60361843
+    },
+    {
+      "generatedAt": "2026-05-14T08:15:59.565Z",
+      "id": "bluechip",
+      "label": "Bluechip / Majors",
+      "score": 159,
+      "count": 3,
+      "avgChange24h": -0.3269906931792625,
+      "totalVolume24h": 69505920.71506016,
+      "totalLiquidity": 707797465.806656,
+      "medianFdv": 59640797.60361843
+    },
+    {
+      "generatedAt": "2026-05-14T08:15:59.565Z",
+      "id": "other",
+      "label": "Other / Unclassified",
+      "score": 158,
+      "count": 10,
+      "avgChange24h": 522.9947503657233,
+      "totalVolume24h": 6753997.7187256925,
+      "totalLiquidity": 961136.697273449,
+      "medianFdv": 72947.74923921618
+    },
+    {
+      "generatedAt": "2026-05-14T08:15:59.565Z",
+      "id": "cat",
+      "label": "Cat memes",
+      "score": 139,
+      "count": 1,
+      "avgChange24h": 972.3506351112793,
+      "totalVolume24h": 1244877.065155027,
+      "totalLiquidity": 147739.41410577382,
+      "medianFdv": 297623.37080716836
     }
   ]
 }
