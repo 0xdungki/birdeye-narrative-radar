@@ -28,9 +28,10 @@ That is more useful for traders, researchers, and community teams because rotati
   - per-narrative actionable token cards
   - clickable token names/cards that open chart + token detail panel
   - copyable Solana contract addresses (CA)
-  - one-click Dexscreener links for each scanned token
-  - history spark bars
-  - score deltas
+  - one-click Dexscreener and Birdeye links for each scanned token
+  - token search, narrative filter, and min liquidity/volume/momentum filters
+  - risk badges, top movers, local watchlist, export JSON/CSV, and shareable token URLs
+  - history spark bars, score deltas, alert reasons, and narrative timeline
 - SQLite persistence for polling/history.
 - Optional silent-unless-actionable alert script for Telegram/Hermes cron.
 - Read-only analytics only: no wallet, no swaps, no private keys.
