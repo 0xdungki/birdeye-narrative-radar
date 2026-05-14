@@ -34,4 +34,7 @@ npm run serve
 ```
 
 ## Repository
-TBD after GitHub push.
+https://github.com/0xdungki/birdeye-narrative-radar
+
+## Live demo
+https://0xdungki.github.io/birdeye-narrative-radar/
