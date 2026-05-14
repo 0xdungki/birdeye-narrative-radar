@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-14T07:50:22.688Z",
+  "generatedAt": "2026-05-14T08:00:50.708Z",
   "chain": "solana",
   "source": "Birdeye token_trending",
   "tokenCount": 20,
@@ -15,11 +15,11 @@
           "name": "TROLL",
           "logoURI": "https://i.ibb.co/4gtJvGcG/image.png",
           "rank": 8,
-          "price": 0.12774751662102565,
-          "priceChange24h": 20.727275986976252,
-          "volume24h": 14802954.850696234,
-          "liquidity": 5220222.6763627,
-          "fdv": 127604535.44093202,
+          "price": 0.13020618217090127,
+          "priceChange24h": 21.28330827799845,
+          "volume24h": 14647690.50164634,
+          "liquidity": 5234620.623103185,
+          "fdv": 130060449.13377687,
           "matched": [
             "troll"
           ]
@@ -30,11 +30,11 @@
           "name": "ChudTheBuilder",
           "logoURI": "https://ipfs.io/ipfs/QmcCfJCHfejmztjp1mPXsNv4DhEYGiScizhotrfMnJabSb",
           "rank": 5,
-          "price": 0.0013577339886363638,
-          "priceChange24h": 32.271196471569695,
-          "volume24h": 4606332.706788419,
-          "liquidity": 203878.8122955627,
-          "fdv": 1357610.1459002167,
+          "price": 0.0013563063973406411,
+          "priceChange24h": 33.29670454193238,
+          "volume24h": 4610310.568097429,
+          "liquidity": 201305.7040239191,
+          "fdv": 1356182.6848191116,
           "matched": [
             "chud"
           ]
@@ -44,12 +44,12 @@
           "symbol": "neet",
           "name": "NotInEmploymentEducationTraining",
           "logoURI": "https://ipfs.io/ipfs/QmXVKWN3i56vyh4Xot9sTb3XsCu92ihypcArFJLujuwzoS",
-          "rank": 4,
-          "price": 0.036607182069941964,
-          "priceChange24h": 11.476372950777172,
-          "volume24h": 2732384.180026843,
-          "liquidity": 2490904.4298654073,
-          "fdv": 36598853.8779051,
+          "rank": 3,
+          "price": 0.036588854243900855,
+          "priceChange24h": 12.083206802871489,
+          "volume24h": 2711534.1161672166,
+          "liquidity": 2490280.3984655906,
+          "fdv": 36580530.221473515,
           "matched": [
             "neet"
           ]
@@ -60,11 +60,11 @@
           "name": "Bull",
           "logoURI": "https://pbs.twimg.com/profile_images/2042216772326019072/htTxm1_I_400x400.jpg",
           "rank": 13,
-          "price": 0.006507844458803722,
-          "priceChange24h": 19.165128735358667,
-          "volume24h": 2075078.8102074363,
-          "liquidity": 632264.4854985236,
-          "fdv": 6507475.627479546,
+          "price": 0.0064824176540168,
+          "priceChange24h": 17.16998866348878,
+          "volume24h": 2061712.3219104838,
+          "liquidity": 631186.9896091569,
+          "fdv": 6482050.263753814,
           "matched": [
             "bull"
           ]
@@ -74,12 +74,12 @@
           "symbol": "WOJAK",
           "name": "Wojak ",
           "logoURI": "https://ipfs.io/ipfs/bafkreighazhzw7kijsyhff77vvjgwbeonhq7fua7lpic4df7qjcajiykcm",
-          "rank": 6,
-          "price": 0.008676172831690898,
-          "priceChange24h": 18.81647660771243,
-          "volume24h": 1953836.852217989,
-          "liquidity": 934899.384932133,
-          "fdv": 8675183.629811801,
+          "rank": 9,
+          "price": 0.008534310968640947,
+          "priceChange24h": 12.144503751910293,
+          "volume24h": 1886720.3938498811,
+          "liquidity": 924399.958602413,
+          "fdv": 8533337.940946506,
           "matched": [
             "wojak"
           ]
@@ -93,11 +93,11 @@
         "wojak"
       ],
       "count": 5,
-      "avgChange24h": 20.491290150478843,
-      "totalVolume24h": 26170587.399936926,
-      "totalLiquidity": 9482169.788954327,
-      "medianFdv": 8675183.629811801,
-      "score": 207
+      "avgChange24h": 19.19554240764028,
+      "totalVolume24h": 25917967.90167135,
+      "totalLiquidity": 9481793.673804265,
+      "medianFdv": 8533337.940946506,
+      "score": 206
     },
     {
       "id": "infra",
@@ -108,11 +108,11 @@
           "symbol": "dzSOL",
           "name": "DoubleZero Staked SOL",
           "logoURI": "https://fn474du36qdxqh6szvejo72imufs4tcnskea73kg4jx53e5rarba.arweave.net/K3n-Dpv0B3gf0s1Il39IZQsuTE2SiA_tRuJv3ZOxBEI",
-          "rank": 19,
+          "rank": 18,
           "price": 95.36144101120492,
           "priceChange24h": -4.6421956628891685,
           "volume24h": 66571491.981507786,
-          "liquidity": 647641114.2763529,
+          "liquidity": 646507155.2256925,
           "fdv": 646414922.4651778,
           "matched": [
             "sol"
@@ -123,12 +123,12 @@
           "symbol": "hSOL",
           "name": "Helius Staked SOL",
           "logoURI": "https://raw.githubusercontent.com/igneous-labs/lst-offchain-metadata/master/hSOL/hSOL.png",
-          "rank": 20,
-          "price": 105.88054439474666,
-          "priceChange24h": -4.413294880055127,
-          "volume24h": 2701189.464751618,
-          "liquidity": 59708024.52253513,
-          "fdv": 59615179.29588273,
+          "rank": 19,
+          "price": 105.92604422216587,
+          "priceChange24h": -4.372218602903459,
+          "volume24h": 2705808.0504710795,
+          "liquidity": 59610042.604478605,
+          "fdv": 59640797.60361843,
           "matched": [
             "sol"
           ]
@@ -138,12 +138,12 @@
           "symbol": "XYO",
           "name": "XY Oracle (Wormhole)",
           "logoURI": null,
-          "rank": 7,
-          "price": 0.004778625824104518,
-          "priceChange24h": 23.101008075666858,
-          "volume24h": 355550.7405281828,
-          "liquidity": 209427.63921688308,
-          "fdv": 213034.49390144733,
+          "rank": 6,
+          "price": 0.004761803326448476,
+          "priceChange24h": 22.667647838637343,
+          "volume24h": 355816.93990347313,
+          "liquidity": 208953.0211174975,
+          "fdv": 212284.53514630988,
           "matched": [
             "oracle"
           ]
@@ -154,10 +154,10 @@
         "sol"
       ],
       "count": 3,
-      "avgChange24h": 4.681839177574187,
-      "totalVolume24h": 69628232.18678759,
-      "totalLiquidity": 707558566.4381049,
-      "medianFdv": 59615179.29588273,
+      "avgChange24h": 4.551077857614906,
+      "totalVolume24h": 69633116.97188234,
+      "totalLiquidity": 706326150.8512886,
+      "medianFdv": 59640797.60361843,
       "score": 164
     },
     {
@@ -169,11 +169,11 @@
           "symbol": "dzSOL",
           "name": "DoubleZero Staked SOL",
           "logoURI": "https://fn474du36qdxqh6szvejo72imufs4tcnskea73kg4jx53e5rarba.arweave.net/K3n-Dpv0B3gf0s1Il39IZQsuTE2SiA_tRuJv3ZOxBEI",
-          "rank": 19,
+          "rank": 18,
           "price": 95.36144101120492,
           "priceChange24h": -4.6421956628891685,
           "volume24h": 66571491.981507786,
-          "liquidity": 647641114.2763529,
+          "liquidity": 646507155.2256925,
           "fdv": 646414922.4651778,
           "matched": [
             "sol"
@@ -184,12 +184,12 @@
           "symbol": "hSOL",
           "name": "Helius Staked SOL",
           "logoURI": "https://raw.githubusercontent.com/igneous-labs/lst-offchain-metadata/master/hSOL/hSOL.png",
-          "rank": 20,
-          "price": 105.88054439474666,
-          "priceChange24h": -4.413294880055127,
-          "volume24h": 2701189.464751618,
-          "liquidity": 59708024.52253513,
-          "fdv": 59615179.29588273,
+          "rank": 19,
+          "price": 105.92604422216587,
+          "priceChange24h": -4.372218602903459,
+          "volume24h": 2705808.0504710795,
+          "liquidity": 59610042.604478605,
+          "fdv": 59640797.60361843,
           "matched": [
             "sol"
           ]
@@ -199,12 +199,12 @@
           "symbol": "PBTC",
           "name": "Purple Bitcoin",
           "logoURI": "https://gateway.irys.xyz/sSkCiLfqIwenQhAwaM-Yjfct9U1AkQpzALh4zk4oaZ8",
-          "rank": 10,
-          "price": 0.5665824448891552,
-          "priceChange24h": 8.886116521387038,
-          "volume24h": 226432.275979486,
-          "liquidity": 524991.1916220251,
-          "fdv": 10940610.236927642,
+          "rank": 11,
+          "price": 0.5596338147425013,
+          "priceChange24h": 8.25310806359241,
+          "volume24h": 228101.96708898782,
+          "liquidity": 520361.5846192331,
+          "fdv": 10806433.37564141,
           "matched": [
             "bitcoin"
           ]
@@ -215,10 +215,10 @@
         "sol"
       ],
       "count": 3,
-      "avgChange24h": -0.05645800718575256,
-      "totalVolume24h": 69499113.7222389,
-      "totalLiquidity": 707874129.99051,
-      "medianFdv": 59615179.29588273,
+      "avgChange24h": -0.25376873406673894,
+      "totalVolume24h": 69505401.99906786,
+      "totalLiquidity": 706637559.4147904,
+      "medianFdv": 59640797.60361843,
       "score": 159
     },
     {
@@ -230,25 +230,12 @@
           "symbol": "👑",
           "name": "👑",
           "logoURI": "https://pump.mypinata.cloud/ipfs/QmUQB9PVYsSwdGpGj2Pvktc1tP2ir8kC6cdjiA7e7jBeAM",
-          "rank": 9,
-          "price": 0.00005361557946377038,
-          "priceChange24h": 1819.941818124661,
-          "volume24h": 743022.6022734285,
-          "liquidity": 19616.297839045954,
-          "fdv": 53613.01107666957,
-          "matched": []
-        },
-        {
-          "address": "AMN7wreJ1xgWUVLPHNw8jKV1AbieAA9pZhP6UXd8BcEr",
-          "symbol": "SpongeBo",
-          "name": "SpongeBo",
-          "logoURI": "https://ipfs.io/ipfs/QmVRndChUi97P6TJbdAE1KQ7cCCReMjJBr6bfzmkqEXKGM",
-          "rank": 17,
-          "price": 0.00003980591697922683,
-          "priceChange24h": 2241.446138285943,
-          "volume24h": 176869.35920377838,
-          "liquidity": 16279.82707626092,
-          "fdv": 39776.99663935804,
+          "rank": 7,
+          "price": 0.00006979608272831157,
+          "priceChange24h": 2399.3559579436137,
+          "volume24h": 745423.2158143339,
+          "liquidity": 21763.130366858477,
+          "fdv": 69792.73923449207,
           "matched": []
         },
         {
@@ -257,11 +244,11 @@
           "name": "Reserve Currency of Socialcom",
           "logoURI": "https://pbs.twimg.com/profile_images/2047483317243858944/eauoG1Dx_400x400.jpg",
           "rank": 1,
-          "price": 0.0000016833988838327142,
-          "priceChange24h": 457.22907193266803,
-          "volume24h": 1931407.6214328678,
-          "liquidity": 136037.63395665505,
-          "fdv": 168339.8883832714,
+          "price": 0.0000017423559679310307,
+          "priceChange24h": 476.7447087621065,
+          "volume24h": 1971658.2255359674,
+          "liquidity": 137800.12615821115,
+          "fdv": 174235.59679310306,
           "matched": []
         },
         {
@@ -269,12 +256,12 @@
           "symbol": "马一龙",
           "name": "Yilongma",
           "logoURI": "https://ipfs.io/ipfs/bafkreifl6ex3r55b6aeug5dululgyshexq7fd4257mzlnxi7gn6x5bgnjy",
-          "rank": 11,
-          "price": 0.00002609004588058714,
-          "priceChange24h": 847.5535677605775,
-          "volume24h": 570438.1955482895,
-          "liquidity": 13393.56047222824,
-          "fdv": 26089.988772722103,
+          "rank": 10,
+          "price": 0.000022760135709479172,
+          "priceChange24h": 726.615939770305,
+          "volume24h": 572762.2339193143,
+          "liquidity": 12909.892507975897,
+          "fdv": 22760.085890373284,
           "matched": []
         },
         {
@@ -283,11 +270,11 @@
           "name": "2026 World Cup Mascots",
           "logoURI": "https://ipfs.io/ipfs/QmcQmygZeb67WAsE3bH9KLGygb17hF6z64FF82heenba7e",
           "rank": 14,
-          "price": 0.000356132603512526,
-          "priceChange24h": 93.18069558578081,
-          "volume24h": 1149543.5337584508,
-          "liquidity": 62723.805072161056,
-          "fdv": 356127.5046733948,
+          "price": 0.0003780073623994844,
+          "priceChange24h": 102.40067722542277,
+          "volume24h": 1153888.6153651138,
+          "liquidity": 64522.950690409074,
+          "fdv": 378001.9503739853,
           "matched": []
         },
         {
@@ -296,11 +283,11 @@
           "name": "perps",
           "logoURI": "https://ipfs.io/ipfs/bafkreicazrk47dehwsyijalbsmd43igrhxs7a662nwmx45pv7ofirwctme",
           "rank": 16,
-          "price": 0.000045823478108886186,
-          "priceChange24h": 752.419521356394,
-          "volume24h": 445760.79674040515,
-          "liquidity": 17671.71912118552,
-          "fdv": 45817.09930684552,
+          "price": 0.00004572229726967661,
+          "priceChange24h": 750.5373306958658,
+          "volume24h": 445883.4123357227,
+          "liquidity": 17437.642302619613,
+          "fdv": 45715.93255239271,
           "matched": []
         },
         {
@@ -309,11 +296,11 @@
           "name": "Pinnochio Token",
           "logoURI": "https://ipfs.io/ipfs/bafkreibwt4qdlj6a6jhjb2qehaowtgx4id6nohpkbzd2rvrpvaesbr3kfu",
           "rank": 12,
-          "price": 0.0000766968333555422,
-          "priceChange24h": 182.50597781895135,
-          "volume24h": 954488.699719988,
-          "liquidity": 60668.09105351295,
-          "fdv": 76680.8271493968,
+          "price": 0.00007143703082168135,
+          "priceChange24h": 95.45228040838549,
+          "volume24h": 954978.6921918201,
+          "liquidity": 59752.608279093605,
+          "fdv": 71422.12230731745,
           "matched": []
         },
         {
@@ -322,11 +309,24 @@
           "name": "Russian Oil Asset Fund",
           "logoURI": "https://roaf.mypinata.cloud/ipfs/QmSxgB2hS3dDvPu66SNF4YnDcfHX4WtohHqBcYkJbwWRSD",
           "rank": 15,
-          "price": 7.258443251197299e-7,
-          "priceChange24h": 271.19233837605907,
-          "volume24h": 396922.9389036688,
-          "liquidity": 72562.97482660282,
-          "fdv": 72584.43251197299,
+          "price": 7.190375085012081e-7,
+          "priceChange24h": 267.7113740837373,
+          "volume24h": 411752.1115000766,
+          "liquidity": 72049.32149980834,
+          "fdv": 71903.7508501208,
+          "matched": []
+        },
+        {
+          "address": "MMBiSxREjrwNMmdxuBgvW9crKZTS136qHbpgN4Hpump",
+          "symbol": "ECONOMY",
+          "name": "In this economy?",
+          "logoURI": "https://ipfs.io/ipfs/bafkreib6wx6megbi7fezqt65imj6iy5qfxemipdtwcri4mazuj5qljxqe4",
+          "rank": 20,
+          "price": 0.000010703098997200878,
+          "priceChange24h": 303.4974248350488,
+          "volume24h": 375914.2490439937,
+          "liquidity": 8742.63568011461,
+          "fdv": 10703.097917992058,
           "matched": []
         },
         {
@@ -334,12 +334,12 @@
           "symbol": "Azure",
           "name": "AzureArcFifth",
           "logoURI": "https://desperate-moccasin-minnow.myfilebase.com/ipfs/QmU3tLALrS9z2x8XmLaDbMMWRAT1KFTU81k4FFFwJ7jxoW",
-          "rank": 18,
-          "price": 0.00006035213978821347,
-          "priceChange24h": 230.76005900525723,
-          "volume24h": 129089.00705646297,
-          "liquidity": 21348.26346043246,
-          "fdv": 60333.617228095216,
+          "rank": 17,
+          "price": 0.00006112799487270058,
+          "priceChange24h": 235.01213481275997,
+          "volume24h": 129176.0585735529,
+          "liquidity": 21465.56563692808,
+          "fdv": 61109.234196378064,
           "matched": []
         },
         {
@@ -351,17 +351,17 @@
           "price": 0.00011639977534012738,
           "priceChange24h": 48.017716272718175,
           "volume24h": 60549.38198571933,
-          "liquidity": 525002.1088399302,
+          "liquidity": 524642.4116128163,
           "fdv": 1757543.5074715244,
           "matched": []
         }
       ],
       "matchedTerms": [],
       "count": 10,
-      "avgChange24h": 694.424690451901,
-      "totalVolume24h": 6558092.136623059,
-      "totalLiquidity": 945304.2817180151,
-      "medianFdv": 72584.43251197299,
+      "avgChange24h": 540.5345544809963,
+      "totalVolume24h": 6821986.196265616,
+      "totalLiquidity": 941086.2847348351,
+      "medianFdv": 71422.12230731745,
       "score": 158
     },
     {
@@ -373,12 +373,12 @@
           "symbol": "RKC",
           "name": "Red Kitten Crew",
           "logoURI": "https://ipfs.io/ipfs/bafybeifbpcfl5osxwd5qzdizvy2nbt3ilnkzoaf6c7e7xx25f7bvtsbd4e",
-          "rank": 3,
-          "price": 0.000003018346373793585,
-          "priceChange24h": 987.5240214319285,
-          "volume24h": 1206882.9839004376,
-          "liquidity": 148329.66438033176,
-          "fdv": 301834.6373793585,
+          "rank": 4,
+          "price": 0.0000029749576881340677,
+          "priceChange24h": 971.8908792840383,
+          "volume24h": 1222318.3114097812,
+          "liquidity": 147061.87455124312,
+          "fdv": 297495.76881340676,
           "matched": [
             "kitten"
           ]
@@ -388,10 +388,10 @@
         "kitten"
       ],
       "count": 1,
-      "avgChange24h": 987.5240214319285,
-      "totalVolume24h": 1206882.9839004376,
-      "totalLiquidity": 148329.66438033176,
-      "medianFdv": 301834.6373793585,
+      "avgChange24h": 971.8908792840383,
+      "totalVolume24h": 1222318.3114097812,
+      "totalLiquidity": 147061.87455124312,
+      "medianFdv": 297495.76881340676,
       "score": 138
     }
   ]

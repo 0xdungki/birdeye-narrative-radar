@@ -54,8 +54,8 @@
 const usd = n => n ? '$' + Intl.NumberFormat('en', { notation:'compact', maximumFractionDigits:1 }).format(n) : '—';
 const pct = n => (n > 0 ? '+' : '') + (Number.isFinite(n) ? n.toFixed(2) : '0.00') + '%';
 Promise.all([
-  fetch('/data/latest.json?ts=' + Date.now()).then(r => r.json()),
-  fetch('/data/history.json?ts=' + Date.now()).then(r => r.ok ? r.json() : {points:[]}).catch(() => ({points:[]}))
+  fetch('data/latest.json?ts=' + Date.now()).then(r => r.json()),
+  fetch('data/history.json?ts=' + Date.now()).then(r => r.ok ? r.json() : {points:[]}).catch(() => ({points:[]}))
 ]).then(([data, history]) => {
   const byId = {};
   for (const p of (history.points || [])) (byId[p.id] ||= []).push(p);
