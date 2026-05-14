@@ -1,0 +1,29 @@
+Project name: Birdeye Narrative Rotation Radar
+
+GitHub link:
+https://github.com/0xdungki/birdeye-narrative-radar
+
+Live demo:
+https://0xdungki.github.io/birdeye-narrative-radar/
+
+X post link:
+PASTE_X_POST_LINK_HERE
+
+Brief description:
+Narrative Rotation Radar is a Birdeye-powered Solana dashboard that detects which crypto narratives are rotating fastest, not just which individual token is trending. It pulls Birdeye token_trending data, classifies tokens into narratives such as AI agents, meme culture, cat/dog/frog memes, politics, DeFi, infra/DePIN, gaming, RWA, and majors, then scores each narrative by token count, average 24h price change, 24h volume, liquidity, and median FDV. It also stores polling history in SQLite and displays score deltas/spark bars so users can see narrative rotation over time.
+
+Birdeye endpoints used:
+- /defi/token_trending on Solana
+
+Birdeye data fields used:
+- token address, symbol, name, logo
+- price
+- price24hChangePercent
+- volume24hUSD
+- liquidity
+- fdv / marketcap
+
+Notes:
+- Read-only analytics: no wallet, no swaps, no private keys.
+- Uses Birdeye API key from local .env, not committed to GitHub.
+- Open-sourced for Presentation score.

@@ -1,0 +1,13 @@
+Built a Birdeye-powered Narrative Rotation Radar for Sprint 4 🚨
+
+Instead of only asking “what token is trending?”, it detects which crypto narratives are rotating fastest across Solana trending tokens.
+
+Uses @birdeye_data API:
+- /defi/token_trending
+- price / volume / liquidity / FDV metrics
+- narrative scoring + history dashboard
+
+Repo: https://github.com/0xdungki/birdeye-narrative-radar
+Demo: https://0xdungki.github.io/birdeye-narrative-radar/
+
+#BirdeyeAPI
