@@ -26,6 +26,7 @@ That is more useful for traders, researchers, and community teams because rotati
   - current top narrative
   - narrative leaderboard
   - per-narrative actionable token cards
+  - clickable token names/cards that open chart + token detail panel
   - copyable Solana contract addresses (CA)
   - one-click Dexscreener links for each scanned token
   - history spark bars

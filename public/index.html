@@ -28,14 +28,28 @@
     .metric { background:#111827; border-radius:12px; padding:10px; }
     .metric b { display:block; font-size:15px; margin-top:3px; }
     .tokens { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:10px; }
-    .token { border:1px solid #334155; border-radius:16px; padding:10px; color:#dbeafe; background:#020617; font-size:13px; display:grid; gap:8px; }
+    .token { border:1px solid #334155; border-radius:16px; padding:10px; color:#dbeafe; background:#020617; font-size:13px; display:grid; gap:8px; cursor:pointer; transition:.15s transform,.15s border-color; }
+    .token:hover { transform: translateY(-1px); border-color:#60a5fa; }
     .token-top { display:flex; justify-content:space-between; gap:8px; align-items:center; }
-    .token-symbol { font-weight:800; font-size:15px; }
+    .token-symbol { font-weight:800; font-size:15px; color:#e0f2fe; background:none; border:0; padding:0; text-align:left; cursor:pointer; }
     .ca { color:#93a4c1; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:11px; word-break: break-all; }
     .actions { display:flex; gap:7px; flex-wrap:wrap; }
     .action { border:1px solid #3b82f6; background:#0b2348; color:#bfdbfe; border-radius:999px; padding:6px 9px; font-size:12px; cursor:pointer; text-decoration:none; }
     .action:hover { background:#12376d; color:#eff6ff; }
     .copied { border-color:#22c55e; color:#bbf7d0; }
+    .modal-backdrop { position:fixed; inset:0; background:#020617cc; backdrop-filter:blur(8px); display:none; align-items:center; justify-content:center; padding:18px; z-index:50; }
+    .modal-backdrop.open { display:flex; }
+    .modal { width:min(1080px, 100%); max-height:92vh; overflow:auto; background:#07111f; border:1px solid #334155; border-radius:24px; box-shadow:0 28px 90px #000c; }
+    .modal-head { display:flex; justify-content:space-between; gap:12px; align-items:start; padding:18px; border-bottom:1px solid #1f2d44; }
+    .modal-title { font-size:24px; font-weight:900; margin:0; }
+    .modal-body { display:grid; grid-template-columns: 1.6fr .9fr; gap:14px; padding:18px; }
+    @media (max-width: 900px) { .modal-body { grid-template-columns:1fr; } }
+    .chart-frame { width:100%; min-height:560px; border:0; border-radius:18px; background:#020617; }
+    .detail-list { display:grid; gap:10px; }
+    .detail { background:#0b1220; border:1px solid #223047; border-radius:14px; padding:11px; }
+    .detail span { display:block; color:#93a4c1; font-size:12px; margin-bottom:4px; }
+    .detail b { word-break:break-all; }
+    .close { border:1px solid #64748b; background:#0f172a; color:#e2e8f0; border-radius:999px; padding:8px 12px; cursor:pointer; }
     .spark { height: 34px; display:flex; align-items:end; gap:3px; margin-top:2px; }
     .bar { width: 8px; min-height: 2px; border-radius:99px 99px 0 0; background:linear-gradient(#60a5fa,#1d4ed8); opacity:.9; }
     .delta { font-size: 13px; margin-left: 8px; }
@@ -57,16 +71,25 @@
       <div class="narrative" id="board"></div>
     </section>
   </main>
+  <div class="modal-backdrop" id="tokenModal" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head"><div><div class="label">Token chart + details</div><h2 class="modal-title" id="modalTitle">Token</h2></div><button class="close" type="button" id="closeModal">Close</button></div>
+      <div class="modal-body"><iframe class="chart-frame" id="chartFrame" title="Dexscreener token chart"></iframe><aside class="detail-list" id="tokenDetails"></aside></div>
+    </section>
+  </div>
 <script>
 const usd = n => n ? '$' + Intl.NumberFormat('en', { notation:'compact', maximumFractionDigits:1 }).format(n) : '—';
 const pct = n => (n > 0 ? '+' : '') + (Number.isFinite(n) ? n.toFixed(2) : '0.00') + '%';
 const esc = v => String(v ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 const shortCa = ca => ca ? `${ca.slice(0, 6)}…${ca.slice(-6)}` : 'no CA';
 const dexUrl = ca => `https://dexscreener.com/solana/${encodeURIComponent(ca)}`;
+const chartUrl = ca => `https://dexscreener.com/solana/${encodeURIComponent(ca)}?embed=1&theme=dark&trades=0&info=0`;
+let tokenByAddress = {};
+const detailRow = (label, value, cls='') => `<div class="detail"><span>${label}</span><b class="${cls}">${value}</b></div>`;
 const tokenCard = t => {
   const ca = t.address || '';
-  return `<article class="token">
-    <div class="token-top"><span class="token-symbol">${esc(t.symbol || '?')}</span><span class="${t.priceChange24h >= 0 ? 'up' : 'down'}">${pct(t.priceChange24h)}</span></div>
+  return `<article class="token open-token" data-ca="${esc(ca)}" onclick="openToken(this.dataset.ca)">
+    <div class="token-top"><button class="token-symbol" type="button" data-ca="${esc(ca)}" onclick="event.stopPropagation(); openToken(this.dataset.ca)" aria-label="Open ${esc(t.symbol || 'token')} chart and details">${esc(t.symbol || '?')}</button><span class="${t.priceChange24h >= 0 ? 'up' : 'down'}">${pct(t.priceChange24h)}</span></div>
     <div class="ca" title="${esc(ca)}">CA: ${esc(shortCa(ca))}</div>
     <div class="actions">
       <button class="action copy-ca" type="button" data-ca="${esc(ca)}">Copy CA</button>
@@ -74,10 +97,35 @@ const tokenCard = t => {
     </div>
   </article>`;
 };
+function openToken(ca) {
+  const t = tokenByAddress[ca];
+  if (!t) return;
+  document.getElementById('modalTitle').textContent = `${t.symbol || '?'} — ${t.name || 'Unknown token'}`;
+  document.getElementById('chartFrame').src = chartUrl(ca);
+  document.getElementById('tokenDetails').innerHTML = [
+    detailRow('Contract address', esc(ca)),
+    detailRow('24h change', pct(t.priceChange24h), t.priceChange24h >= 0 ? 'up' : 'down'),
+    detailRow('Price', t.price ? '$' + Number(t.price).toPrecision(6) : '—'),
+    detailRow('24h volume', usd(t.volume24h)),
+    detailRow('Liquidity', usd(t.liquidity)),
+    detailRow('FDV / market cap', usd(t.fdv)),
+    detailRow('Birdeye trending rank', t.rank || '—'),
+    `<div class="actions"><button class="action copy-ca" type="button" data-ca="${esc(ca)}">Copy CA</button><a class="action" href="${dexUrl(ca)}" target="_blank" rel="noopener noreferrer">Open Dexscreener ↗</a></div>`
+  ].join('');
+  document.getElementById('tokenModal').classList.add('open');
+  document.getElementById('tokenModal').setAttribute('aria-hidden', 'false');
+}
+function closeToken() {
+  document.getElementById('tokenModal').classList.remove('open');
+  document.getElementById('tokenModal').setAttribute('aria-hidden', 'true');
+  document.getElementById('chartFrame').src = 'about:blank';
+}
 Promise.all([
   fetch('data/latest.json?ts=' + Date.now()).then(r => r.json()),
   fetch('data/history.json?ts=' + Date.now()).then(r => r.ok ? r.json() : {points:[]}).catch(() => ({points:[]}))
 ]).then(([data, history]) => {
+  tokenByAddress = {};
+  for (const r of data.rotations || []) for (const t of r.tokens || []) if (t.address) tokenByAddress[t.address] = t;
   const byId = {};
   for (const p of (history.points || [])) (byId[p.id] ||= []).push(p);
   const deltaFor = id => {
@@ -117,17 +165,31 @@ Promise.all([
 });
 document.addEventListener('click', async e => {
   const btn = e.target.closest('.copy-ca');
-  if (!btn) return;
-  const ca = btn.dataset.ca;
-  try {
-    await navigator.clipboard.writeText(ca);
-    btn.textContent = 'Copied';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copy CA'; btn.classList.remove('copied'); }, 1200);
-  } catch {
-    window.prompt('Copy contract address', ca);
+  if (btn) {
+    e.stopPropagation();
+    const ca = btn.dataset.ca;
+    try {
+      await navigator.clipboard.writeText(ca);
+      btn.textContent = 'Copied';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy CA'; btn.classList.remove('copied'); }, 1200);
+    } catch {
+      window.prompt('Copy contract address', ca);
+    }
+    return;
+  }
+  if (e.target.closest('a')) return;
+  const open = e.target.closest('.open-token');
+  if (open?.dataset.ca) openToken(open.dataset.ca);
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeToken();
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('open-token')) {
+    e.preventDefault(); openToken(e.target.dataset.ca);
   }
 });
+document.getElementById('closeModal').addEventListener('click', closeToken);
+document.getElementById('tokenModal').addEventListener('click', e => { if (e.target.id === 'tokenModal') closeToken(); });
 </script>
 </body>
 </html>

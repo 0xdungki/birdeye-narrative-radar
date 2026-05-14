@@ -20,7 +20,7 @@ The goal is to turn raw trending-token feeds into higher-level market intelligen
 - Narrative clustering from Birdeye token metadata
 - Rotation scoring and leaderboard
 - Historical snapshots with SQLite
-- Static web dashboard with copyable CA and Dexscreener links for every scanned token
+- Static web dashboard with clickable token cards, chart/detail panel, copyable CA, and Dexscreener links for every scanned token
 - Optional silent-unless-actionable alert script
 - Read-only; no wallet, no swaps, no private keys
 
